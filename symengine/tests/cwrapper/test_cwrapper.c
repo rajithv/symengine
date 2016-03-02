@@ -543,82 +543,50 @@ void test_functions() {
     char* s;
 
     basic_sin(ans, pi);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_cos(ans, pi);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "-1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, minus_one));
-    basic_str_free(s);
 
     basic_tan(ans, pi);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_csc(ans, pi_div_two);
     s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
 
     basic_sec(ans, pi);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "-1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, minus_one));
-    basic_str_free(s);
 
     basic_cot(ans, pi_div_four);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
 
     basic_asin(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "(1/2)*pi") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, pi_div_two));
-    basic_str_free(s);
 
     basic_acos(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_atan(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "(1/4)*pi") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, pi_div_four));
-    basic_str_free(s);
 
     basic_acot(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "(1/4)*pi") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, pi_div_four));
-    basic_str_free(s);
+
+    basic_acsc(ans, one);
+    SYMENGINE_C_ASSERT(basic_eq(ans, pi_div_two));
+
+    basic_asec(ans, one);
+    SYMENGINE_C_ASSERT(basic_eq(ans, zero));
 
     basic_sinh(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_cosh(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
 
     basic_tanh(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_csch(ans, one);
     s = basic_str(ans);
@@ -626,10 +594,7 @@ void test_functions() {
     basic_str_free(s);
 
     basic_sech(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
 
     basic_coth(ans, one);
     s = basic_str(ans);
@@ -637,22 +602,13 @@ void test_functions() {
     basic_str_free(s);
 
     basic_asinh(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_acosh(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
-    basic_tanh(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
+    basic_atanh(ans, zero);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_acsch(ans, one);
     s = basic_str(ans);
@@ -660,10 +616,7 @@ void test_functions() {
     basic_str_free(s);
 
     basic_asech(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "0") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, zero));
-    basic_str_free(s);
 
     basic_acoth(ans, one);
     s = basic_str(ans);
@@ -677,10 +630,7 @@ void test_functions() {
     basic_str_free(s);
 
     basic_zeta(ans, zero);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "-1/2") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, minus_half));
-    basic_str_free(s);
 
     basic_dirichlet_eta(ans, one);
     s = basic_str(ans);
@@ -688,16 +638,7 @@ void test_functions() {
     basic_str_free(s);
 
     basic_gamma(ans, one);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
     SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
-
-    basic_gamma(ans, two);
-    s = basic_str(ans);
-    SYMENGINE_C_ASSERT(strcmp(s, "1") == 0);
-    SYMENGINE_C_ASSERT(basic_eq(ans, one));
-    basic_str_free(s);
     
     basic_free_stack(ans);
     basic_free_stack(pi);
