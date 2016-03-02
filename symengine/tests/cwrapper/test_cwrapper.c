@@ -458,6 +458,7 @@ void test_ascii_art() {
     basic_str_free(s);
 }
 
+<<<<<<< HEAD
 void test_ntheory() {
     basic x1, x2, x3, x4, x5, x6, x7, x8,  i1, i2, i4, i5;
 
@@ -519,7 +520,9 @@ void test_ntheory() {
 
 }
 
+void test_functions() {
 
+}
 
 int main(int argc, char* argv[])
 {
@@ -540,5 +543,6 @@ int main(int argc, char* argv[])
     test_constants();
     test_ascii_art();
     test_ntheory();
+    test_functions();
     return 0;
 }
