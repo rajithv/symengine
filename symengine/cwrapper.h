@@ -258,6 +258,22 @@ char* ascii_art_str();
 
 //! Print stacktrace on segfault
 void symengine_print_stack_on_segfault();
+//! Greatest Common Divisor
+void ntheory_gcd(basic s, const basic a, const basic b);
+//! Least Common Multiple
+void ntheory_lcm(basic s, const basic a, const basic b);
+//! \return next prime after `a`
+void ntheory_nextprime(basic s, const basic a);
+//! modulo round toward zero
+void ntheory_mod(basic s, const basic n, const basic d);
+//! \return quotient round toward zero when `n` is divided by `d`
+void ntheory_quotient(basic s, const basic n, const basic d);
+//! Fibonacci number
+void ntheory_fibonacci(basic s, unsigned long a);
+//! Lucas number
+void ntheory_lucas(basic s, unsigned long a);
+//! Binomial Coefficient
+void ntheory_binomial(basic s, const basic a, unsigned long b);
 
 #ifdef __cplusplus
 }
