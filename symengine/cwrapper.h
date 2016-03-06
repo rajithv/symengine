@@ -326,6 +326,7 @@ char* ascii_art_str();
 
 //! Print stacktrace on segfault
 void symengine_print_stack_on_segfault();
+//! Wrapper for ntheory 
 //! Greatest Common Divisor
 void ntheory_gcd(basic s, const basic a, const basic b);
 //! Least Common Multiple
@@ -342,6 +343,9 @@ void ntheory_fibonacci(basic s, unsigned long a);
 void ntheory_lucas(basic s, unsigned long a);
 //! Binomial Coefficient
 void ntheory_binomial(basic s, const basic a, unsigned long b);
+
+//! Print stacktrace on segfault
+void symengine_print_stack_on_segfault();
 
 #ifdef __cplusplus
 }
