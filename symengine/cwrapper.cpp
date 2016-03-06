@@ -518,7 +518,7 @@ void symengine_print_stack_on_segfault()
 {
     SymEngine::print_stack_on_segfault();
 }
-
+// Cwrapper for ntheory 
 void ntheory_gcd(basic s, const basic a, const basic b)
 {
     s->m = SymEngine::gcd(static_cast<const Integer &>(*(a->m)), static_cast<const Integer &>(*(b->m)));
@@ -556,6 +556,7 @@ void ntheory_lucas(basic s, unsigned long a)
 
 void ntheory_binomial(basic s, const basic a, unsigned long b)
 {
+    SYMENGINE_ASSERT(is_a<Integer>(*(a->m)));
     s->m = SymEngine::binomial(static_cast<const Integer &>(*(a->m)), b);
 }
 
