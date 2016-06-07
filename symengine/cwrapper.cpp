@@ -16,6 +16,7 @@
 #include <symengine/constants.h>
 #include <symengine/visitor.h>
 #include <symengine/printer.h>
+#include <symengine/derivative.h>
 
 #define xstr(s) str(s)
 #define str(s) #s
@@ -660,9 +661,15 @@ void ntheory_binomial(basic s, const basic a, unsigned long b)
     s->m = SymEngine::binomial(static_cast<const Integer &>(*(a->m)), b);
 }
 
+void diff(basic s, const basic a, const basic x){
+    SYMENGINE_ASSERT(is_a<Symbol>(*(x->m)));
+    s->m = SymEngine::diff(a->m, rcp_static_cast<const Symbol>(x->m));
+}
+
 //! Print stacktrace on segfault
 void symengine_print_stack_on_segfault()
 {
     SymEngine::print_stack_on_segfault();
 }
 }
+

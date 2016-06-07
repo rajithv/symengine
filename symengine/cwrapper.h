@@ -361,6 +361,9 @@ void ntheory_lucas(basic s, unsigned long a);
 //! Binomial Coefficient
 void ntheory_binomial(basic s, const basic a, unsigned long b);
 
+//! Assigns to s, the differentiation of a with respect to x
+void diff(basic s, const basic a, const basic x);
+
 //! Print stacktrace on segfault
 void symengine_print_stack_on_segfault();
 

@@ -746,6 +746,42 @@ void test_ntheory() {
     basic_free_stack(i5);
 }
 
+void test_diff(){
+    basic s;
+    basic_new_stack(s);
+
+    basic x;
+    basic_new_stack(x);
+    symbol_set(x, "x");
+    
+    basic i;
+    basic_new_stack(i);
+    basic d;
+    basic_new_stack(d);
+
+    integer_set_si(i, 4);
+    integer_set_si(d, 0);
+    diff(s, i, x);
+    SYMENGINE_C_ASSERT(basic_eq(s, d));
+
+    basic_const_pi(i);
+    diff(s, i, x);
+    SYMENGINE_C_ASSERT(basic_eq(s, d));
+
+    symbol_set(i, "y");
+    diff(s, i, x);
+    SYMENGINE_C_ASSERT(basic_eq(s, d));
+    
+    integer_set_si(d, 1);    
+    diff(s, x, x);
+    SYMENGINE_C_ASSERT(basic_eq(s, d));
+
+    basic_free_stack(x);
+    basic_free_stack(s);
+    basic_free_stack(i);
+    basic_free_stack(d);
+}
+
 int main(int argc, char* argv[])
 {
     test_cwrapper();
@@ -768,6 +804,7 @@ int main(int argc, char* argv[])
     test_functions();
     test_ntheory();
     test_real_double();
+    test_diff();
 
     return 0;
 }
